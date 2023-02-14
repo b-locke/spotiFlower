@@ -1,0 +1,18 @@
+sends a search request of type artist
+returns and array of artists
+
+each has:
+    spotify link
+    followers number
+    genres as an array
+    an image link
+    the artist name
+    popularity
+
+
+Current issues:
+
+- Making the flowers display in a meaningful way. Currently they overlap in a way that looks kinda gross.
+- Improve clarity of flower names.
+- Scale flowers based on some dimension.
+
