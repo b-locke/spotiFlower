@@ -1,0 +1,17 @@
+section {
+    text-align: center;
+    margin-top: 0rem;
+  }
+  
+#flower-one {
+    animation: flower-one 90s linear infinite;
+  
+    @keyframes flower-one {
+      from  {
+        transform: rotate(0deg)
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }

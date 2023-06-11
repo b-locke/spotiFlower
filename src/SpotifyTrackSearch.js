@@ -2,10 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import SpotifyDisplay from './SpotifyDisplay';
-import DisplayFlowers from './FlowerDisplay';
-import "./SpotifySearch.css";
+import TrackSearchDisplay from './TrackSearchDisplay';
 
-function SpotifySearch( {token} ) {
+function SpotifyTrackSearch( {token} ) {
     console.log(token)
     
     const [searchKey, setSearchKey] = useState("")
@@ -19,22 +18,22 @@ function SpotifySearch( {token} ) {
             },
             params: {
                 q: searchKey,
-                type: "artist",
-                limit: 1,
+                type: "track",
+                limit: 10,
                 include_external: "audio"
             }
         })
 
-        setArtists(data.artists.items)
+        setArtists(data.tracks.items)
     }
 
 return <div>
-            <form onSubmit={searchArtists}>
-                <input type="text" placeholder="Search..." onChange={e => setSearchKey(e.target.value)}/>
-                <button type={"submit"}>Search</button>
-            </form>
-                <DisplayFlowers artists={artists}/>
+        <form onSubmit={searchArtists}>
+            <input type="text" onChange={e => setSearchKey(e.target.value)}/>
+            <button type={"submit"}>Search</button>
+       </form>
+       <TrackSearchDisplay artists={artists}/>
        </div>
 }
 
-export default SpotifySearch;
+export default SpotifyTrackSearch;

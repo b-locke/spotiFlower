@@ -1,6 +1,7 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
 import SpotifySearch from './SpotifySearch';
+import "./SpotifyLogin.scss"
 
 const CLIENT_ID = "1598f1064b0c442ca757385e4dd513e8" 
 const REDIRECT_URI = "http://localhost:3000"
@@ -34,8 +35,8 @@ function SpotifyLogin() {
 
     return <div> 
                 {!token ? <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</a> 
-                : <div> <button onClick={logout}>Logout</button> <SpotifySearch token={token}/> </div>}
-            </div>
+                : <body><SpotifySearch token={token}/> <button onClick={logout}>Logout</button> </body>}
+           </div>
 
 }
 export default SpotifyLogin;
